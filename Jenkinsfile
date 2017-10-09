@@ -9,4 +9,4 @@ node {
 	 sh "${tool 'Maven Latest'} -B verify"
 	 sh "${tool 'Maven Latest'} clean install"
  
-   
+      }
