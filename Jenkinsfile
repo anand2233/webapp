@@ -1,6 +1,6 @@
 node {
  
- stages{
+ stages {
 
    stage 'checkout from GitHub'
        {
