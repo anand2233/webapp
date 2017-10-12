@@ -1,6 +1,6 @@
 node {
    def mvnHome
-   def testKitchen = env.TESTKITCHEN
+   //def testKitchen = env.TESTKITCHEN
    stage 'checkout from GitHub'
       // Get some code from a GitHub repository
       git 'https://github.com/pratikjais123/webapp.git'
@@ -18,7 +18,9 @@ node {
       }
     stage 'Creating ec2 instance'
          echo 'Creating EC2 instance using Chef'
-	 sh "cd testKitchen"
+	 dir ('/opt/chef-repo/cookbooks/learn_chef_httpd') {
+	 sh "Kitchen create"
+	 }
    }
    
 
