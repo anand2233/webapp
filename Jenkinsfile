@@ -1,5 +1,6 @@
 node {
    def mvnHome
+   def testKitchen = env.TESTKITCHEN
    stage 'checkout from GitHub'
       // Get some code from a GitHub repository
       git 'https://github.com/pratikjais123/webapp.git'
@@ -15,6 +16,9 @@ node {
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
+    stage 'Creating ec2 instance'
+         echo 'Creating EC2 instance using Chef'
+	 sh "cd testKitchen"
    }
    
 
